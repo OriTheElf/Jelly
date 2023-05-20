@@ -100,7 +100,7 @@ extension Animator: LiveUpdatable {
         
         presentation.presentationAlignment = alignment
         self.presentation = presentation
-        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
     }
     
     public func updateVerticalAlignment(alignment: VerticalAlignment, duration: Duration) throws {
@@ -110,7 +110,7 @@ extension Animator: LiveUpdatable {
         
         presentation.presentationAlignment = PresentationAlignment(vertical: alignment, horizontal: presentation.presentationAlignment.horizontalAlignment)
         self.presentation = presentation
-        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
     }
     
     public func updateHorizontalAlignment(alignment: HorizontalAlignment, duration: Duration) throws {
@@ -120,7 +120,7 @@ extension Animator: LiveUpdatable {
         
         presentation.presentationAlignment = PresentationAlignment(vertical: presentation.presentationAlignment.verticalAlignemt, horizontal: alignment)
         self.presentation = presentation
-        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
     }
     
     public func updateSize(presentationSize: PresentationSize, duration: Duration) throws {
@@ -130,7 +130,7 @@ extension Animator: LiveUpdatable {
         
         presentation.presentationSize = presentationSize
         self.presentation = presentation
-        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
     }
     
     public func updateWidth(width: Size, duration: Duration) throws {
@@ -141,11 +141,11 @@ extension Animator: LiveUpdatable {
         if var presentation = presentation as? FadePresentation {
             presentation.presentationSize = PresentationSize(width: width, height: presentation.presentationSize.height)
             self.presentation = presentation
-            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+            currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
         } else if var presentation = presentation as? CoverPresentation {
             presentation.presentationSize = PresentationSize(width: width, height: presentation.presentationSize.height)
             self.presentation = presentation
-            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+            currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
         }
     }
     
@@ -157,11 +157,11 @@ extension Animator: LiveUpdatable {
         if var presentation = presentation as? FadePresentation {
             presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
             self.presentation = presentation
-            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+            currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
         } else if var presentation = presentation as? CoverPresentation {
             presentation.presentationSize = PresentationSize(width: presentation.presentationSize.height, height: height)
             self.presentation = presentation
-            currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+            currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
         }
     }
     
@@ -172,7 +172,7 @@ extension Animator: LiveUpdatable {
         
         presentation.marginGuards = marginGuards
         self.presentation = presentation
-        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
     }
     
     public func updateCorners(radius: CGFloat, corners: CACornerMask, duration: Duration) {
@@ -180,7 +180,7 @@ extension Animator: LiveUpdatable {
         presentation.presentationUIConfiguration.cornerRadius = radius
         presentation.presentationUIConfiguration.corners = corners
         self.presentation = presentation
-        currentPresentationController.updatePresentation(presentation: presentation, duration: duration)
+        currentPresentationController?.updatePresentation(presentation: presentation, duration: duration)
     }
 
 }
