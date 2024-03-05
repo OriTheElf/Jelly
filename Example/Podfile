@@ -1,8 +1,6 @@
 use_frameworks!
 platform :ios, '10.0'
 
-source 'https://github.com/CocoaPods/Specs.git'
-
 target 'Jelly_Example' do
     pod 'Jelly' , :path => '../'
     pod "TouchVisualizer", '~> 4.0.0'

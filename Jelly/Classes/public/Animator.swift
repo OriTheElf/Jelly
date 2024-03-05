@@ -28,6 +28,22 @@ public class Animator: NSObject {
     private var showInteractionController: InteractionController?
     private var dismissInteractionController: InteractionController?
 
+    
+    /// 点击空白处不处理点击事件
+    public var tapThrough = false {
+        didSet {
+            if let currentPresentationController {
+                [currentPresentationController.dimmingView,currentPresentationController.blurView].forEach { backView in
+                    backView.gestureRecognizers.flatMap { gestures in
+                        gestures.forEach { gesture in
+                            gesture.isEnabled = !tapThrough
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     /// ## designated initializer
     /// - Parameter presentation: a custom Presentation Object
     public init(presentation: Presentation) {
